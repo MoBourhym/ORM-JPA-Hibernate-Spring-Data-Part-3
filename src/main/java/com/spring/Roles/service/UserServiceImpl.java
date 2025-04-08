@@ -41,6 +41,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addRoleToUser(String username, String roleName) {
+      User user=fetchUserByUsername(username);
+      Role role=fetchRoleByRoleName(roleName);
+      if(user.getRoles()!=null){
+          user.getRoles().add(role);
+          role.getUsers().add(user);
+//          userRepository.save(user);
+      }
 
     }
 }
