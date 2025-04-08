@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,8 +18,9 @@ public class Role {
     private String description;
     @Column(length=20,unique=true)
     private String roleName;
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<User> users;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @ToString.Exclude
+    private List<User> users=new ArrayList<>();
 
 
 }

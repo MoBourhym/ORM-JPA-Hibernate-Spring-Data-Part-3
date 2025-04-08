@@ -47,6 +47,21 @@ public class RolesApplication {
 			userService.addRoleToUser("user1", "USER");
 			userService.addRoleToUser("user1", "ADMIN");
 
+
+			try {
+				User user = userService.authenticate("admin", "admin");
+				System.out.println(user.getUserId());
+				System.out.println(user.getUsername());
+				System.out.println("Roles=>");
+				user.getRoles().forEach(role -> {
+					System.out.println("Role=>"+role.toString());
+				});
+			}
+				catch(Exception e){
+					e.printStackTrace();
+				};
+
+
 		};
 	}
 }

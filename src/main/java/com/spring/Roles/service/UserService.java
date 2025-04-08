@@ -13,4 +13,6 @@ public interface UserService {
     Role fetchRoleByRoleName(String roleName);
 
     void addRoleToUser(String username, String roleName);
+
+    User authenticate(String username, String password);
 }
