@@ -2,21 +2,31 @@ package com.spring.Roles.service;
 
 import com.spring.Roles.entities.Role;
 import com.spring.Roles.entities.User;
+import com.spring.Roles.repositories.RoleRepository;
+import com.spring.Roles.repositories.UserRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
+    private UserRepository userRepository;
+    private RoleRepository roleRepository;
+
+
     @Override
     public User addNewUser(User user) {
-        return null;
+        user.setUserId(UUID.randomUUID().toString());
+        return userRepository.save(user);
     }
 
     @Override
     public Role addNewRole(Role role) {
-        return null;
+        return roleRepository.save(role);
     }
 
     @Override

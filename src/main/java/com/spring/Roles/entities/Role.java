@@ -14,6 +14,7 @@ public class Role {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
+    @Column(length=20,unique=true)
     private String roleName;
     @ManyToMany(fetch = FetchType.LAZY)
     private List<User> users;
