@@ -16,9 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
-    @Column(name="USER_NAME",unique=true,length=20)
+    private String userId;
+    @Column(name="user_name",unique=true,length=20)
     private String username;
     private String password;
     @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)

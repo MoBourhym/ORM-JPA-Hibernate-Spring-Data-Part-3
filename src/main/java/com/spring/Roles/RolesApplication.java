@@ -2,7 +2,6 @@ package com.spring.Roles;
 
 import com.spring.Roles.entities.Role;
 import com.spring.Roles.entities.User;
-import com.spring.Roles.repositories.UserRepository;
 import com.spring.Roles.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -44,8 +43,8 @@ public class RolesApplication {
 			userService.addRoleToUser("user1", "STUDENT");
 			userService.addRoleToUser("user1", "USER");
 
-			userService.addRoleToUser("user1", "USER");
-			userService.addRoleToUser("user1", "ADMIN");
+			userService.addRoleToUser("admin", "ADMIN");
+			userService.addRoleToUser("admin", "USER");
 
 
 			try {

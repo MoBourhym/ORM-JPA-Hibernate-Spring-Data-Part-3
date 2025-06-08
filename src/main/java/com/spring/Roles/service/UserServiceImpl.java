@@ -5,7 +5,7 @@ import com.spring.Roles.entities.User;
 import com.spring.Roles.repositories.RoleRepository;
 import com.spring.Roles.repositories.UserRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -13,6 +13,7 @@ import java.util.UUID;
 
 @Service
 @Transactional
+@AllArgsConstructor
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
@@ -31,24 +32,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User fetchUserByUsername(String userName) {
-        return null;
+        return userRepository.findByUsername(userName);
     }
 
     @Override
     public Role fetchRoleByRoleName(String roleName) {
-        return null;
+        return roleRepository.findByRoleName(roleName);
     }
 
     @Override
     public void addRoleToUser(String username, String roleName) {
-      User user=fetchUserByUsername(username);
-      Role role=fetchRoleByRoleName(roleName);
-      if(user.getRoles()!=null){
+      User user = fetchUserByUsername(username);
+      Role role = fetchRoleByRoleName(roleName);
+      
+      if(user != null && role != null) {
           user.getRoles().add(role);
           role.getUsers().add(user);
-//          userRepository.save(user);
+          userRepository.save(user);
       }
-
     }
 
     @Override
