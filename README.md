@@ -405,6 +405,8 @@ Role: USER
 - **JDBC URL** : `jdbc:h2:mem:users-db`
 - **Username** : `sa`
 - **Password** : (vide)
+
+
 ![1749391053417](image/README/1749391053417.png)
 ![1749391090167](image/README/1749391090167.png)
 ![1749391111977](image/README/1749391111977.png)
